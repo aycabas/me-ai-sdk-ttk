@@ -12,8 +12,9 @@ https://user-images.githubusercontent.com/36196437/231459635-bb3a34f8-66ec-46fb-
 - Back-end code can be found in [index.ts](./index.ts)
 - Adaptive cards can be found in [cards](./cards) folder
 - Configuration settings can be found in [config.ts](./config.ts)
-## Prerequisites
+- Teams AI SDK prompts can be found in [./prompts](./prompts) folder
 
+## Prerequisites
 - [Node.js](https://nodejs.org/), supported versions: 14, 16, 18
 - An M365 account. If you do not have M365 account, apply one from [M365 developer program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
 - [Teams Toolkit Visual Studio Code Extension pre-release v5](https://aka.ms/teams-toolkit) version after 5.0.0 pre-release or [TeamsFx CLI](https://aka.ms/teamsfx-cli)
