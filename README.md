@@ -1,4 +1,4 @@
-# How to use this Message Extension app with AI SDK and Teams Toolkit v5
+# Message Extension app with Teams AI SDK and Teams Toolkit for Visual Studio Code v5
 
 A Message Extension allows users to interact with your web service while composing messages in the Microsoft Teams client. Users can invoke your web service to assist message composition, from the message compose box, or from the search bar.
 
