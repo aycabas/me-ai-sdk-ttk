@@ -1,22 +1,4 @@
-# Teams Toolkit v5.0 Pre-release
-
-### What does pre-release mean?
-Pre-release is meant for those who are eager to try the latest Teams Toolkit features and fixes. Even though pre-releases are not intended for use in production, they are at a sufficient quality level for you to generally use and [provide feedback](https://aka.ms/ttk-feedback). However, pre-release versions can and probably will change, and those changes could be major.
-
-We've addressed a number of reported bugs and added major changes in this release based on your feedback to make Teams Toolkit more flexible. Some of the key highlights to these changes include:
-
-- Use existing infrastructure, resource groups, and more when provisioning
-- Use an existing Teams app ID
-- Use an existing Azure AD app registration ID
-- Use a different tunneling solution or customize the defaults
-- Add custom steps to debugging, provisioning, deploying, publishing, etc.
-
-### What about my existing Teams Toolkit projects?
-The changes in this pre-release require upgrades to the TeamsFx configuration files. We recommend that you create a new app using this version. In the future, we'll provide a way to automatically upgrade existing Teams apps that were created with a previous version of Teams Toolkit.
-
-Learn more about the changes in this pre-release at [https://aka.ms/teamsfx-v5.0-guide](https://aka.ms/teamsfx-v5.0-guide).
-
-# How to use this Message Extension HelloWorld app
+# How to use this Message Extension app with AI SDK and Teams Toolkit v5
 
 A Message Extension allows users to interact with your web service while composing messages in the Microsoft Teams client. Users can invoke your web service to assist message composition, from the message compose box, or from the search bar.
 
@@ -28,21 +10,35 @@ This is a simple hello world application with Message extension capabilities.
 
 - [Node.js](https://nodejs.org/), supported versions: 14, 16, 18
 - An M365 account. If you do not have M365 account, apply one from [M365 developer program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
-- [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version after 4.0.0 or [TeamsFx CLI](https://aka.ms/teamsfx-cli)
+- [Teams Toolkit Visual Studio Code Extension pre-release v5](https://aka.ms/teams-toolkit) version after 5.0.0 pre-release or [TeamsFx CLI](https://aka.ms/teamsfx-cli)
 
 ## Debug
 
+- Copy your `<OpenAIKey>` in the **config.ts** file under the project.
 - From Visual Studio Code: Start debugging the project by hitting the `F5` key in Visual Studio Code.
 - Alternatively use the `Run and Debug Activity Panel` in Visual Studio Code and click the `Run and Debug` green arrow button.
-- From TeamsFx CLI: 
+- From TeamsFx CLI:
   - Executing the command `teamsfx provision --env local` in your project directory.
   - Executing the command `teamsfx deploy --env local` in your project directory.
   - Executing the command `teamsfx preview --env local` in your project directory.
 
+> **Note for people picker feature**
+>
+> To test the **people picker** feature of this app, select **dev > .env.local** and copy `AAD_APP_CLIENT_ID`.
+>
+> Visit [Azure Portal](https://portal.azure.com) and select **Azure Active Directory**.
+>
+> In **App registrations**, paste `AAD_APP_CLIENT_ID` to find your project.
+
+>Select **API permissions > Add a permission > Microsoft Graph > Application permissions**, and add `User.Read.All`.
+>
+> Select **Grant admin consent for your organization**.
+
 ## Edit the manifest
 
 You can find the Teams app manifest in `./appPackage` folder. The folder contains one manifest file:
-* `manifest.json`: Manifest file for Teams app running locally or running remotely (After deployed to Azure).
+
+- `manifest.json`: Manifest file for Teams app running locally or running remotely (After deployed to Azure).
 
 This file contains template arguments with `${{...}}` statements which will be replaced at build time. You may add any extra properties or permissions you require to this file. See the [schema reference](https://docs.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) for more information.
 
