@@ -6,8 +6,7 @@ import { Attachment, CardFactory } from 'botbuilder';
 import config from '../config';
 import { AppCredential, AppCredentialAuthConfig, createMicrosoftGraphClientWithCredential } from "@microsoft/teamsfx";
 import "isomorphic-fetch";
-import * as AdaptiveCards from 'adaptivecards';
-import { people } from '@microsoft/teams-js';
+
 const appAuthConfig: AppCredentialAuthConfig = {
     authorityHost: config.authorityHost,
     clientId: config.clientId,
@@ -49,7 +48,6 @@ export async function createPostCard(post: string, peoplepicker: string): Promis
         wrap: true
     }];
 
-
     displayNameArray.forEach((displayName) => {
         body.push({
             type: 'TextBlock',
@@ -60,7 +58,6 @@ export async function createPostCard(post: string, peoplepicker: string): Promis
             isSubtle: true
         });
     });
-
 
     const card = CardFactory.adaptiveCard({
         '$schema': 'http://adaptivecards.io/schemas/adaptive-card.json',

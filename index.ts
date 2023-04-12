@@ -16,8 +16,6 @@ import {
   MessagingExtensionAttachment,
 } from "botbuilder";
 
-// This bot's main dialog.
-import { TeamsBot } from "./teamsBot";
 import config from "./config";
 // Import the providers and credential at the top of the page
 
@@ -212,8 +210,7 @@ app.messageExtensions.botMessagePreviewSend(
     await context.sendActivity(activity);
   }
 );
-// Create the bot that will handle incoming messages.
-const bot = new TeamsBot();
+
 // Listen for incoming server requests.
 server.post('/api/messages', async (req, res) => {
   // Route received a request to adapter for processing
