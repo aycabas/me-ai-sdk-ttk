@@ -4,7 +4,9 @@ A Message Extension allows users to interact with your web service while composi
 
 Message Extensions are implemented on top of the Bot support architecture within Teams.
 
-This is a simple hello world application with Message extension capabilities.
+This message extension action command capability is built using Teams Toolkit for Visual Studio Code v5 with the integration of Teams AI SDK and Microsoft Graph.
+
+https://user-images.githubusercontent.com/36196437/231459635-bb3a34f8-66ec-46fb-b8ad-fb6c4afad7ad.mp4
 
 ## Prerequisites
 
