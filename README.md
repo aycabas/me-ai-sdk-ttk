@@ -1,13 +1,20 @@
-# How to use this Message Extension app with AI SDK and Teams Toolkit v5
+# Message Extension app with Teams AI SDK and Teams Toolkit for Visual Studio Code v5
 
 A Message Extension allows users to interact with your web service while composing messages in the Microsoft Teams client. Users can invoke your web service to assist message composition, from the message compose box, or from the search bar.
 
 Message Extensions are implemented on top of the Bot support architecture within Teams.
 
-This is a simple hello world application with Message extension capabilities.
+This message extension action command capability is built using Teams Toolkit for Visual Studio Code v5 with the integration of Teams AI SDK and Microsoft Graph.
+
+https://user-images.githubusercontent.com/36196437/231459635-bb3a34f8-66ec-46fb-b8ad-fb6c4afad7ad.mp4
+
+### Code Structure
+- Back-end code can be found in [index.ts](./index.ts)
+- Adaptive cards can be found in [cards](./cards) folder
+- Configuration settings can be found in [config.ts](./config.ts)
+- Teams AI SDK prompts can be found in [./prompts](./prompts) folder
 
 ## Prerequisites
-
 - [Node.js](https://nodejs.org/), supported versions: 14, 16, 18
 - An M365 account. If you do not have M365 account, apply one from [M365 developer program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
 - [Teams Toolkit Visual Studio Code Extension pre-release v5](https://aka.ms/teams-toolkit) version after 5.0.0 pre-release or [TeamsFx CLI](https://aka.ms/teamsfx-cli)
@@ -29,8 +36,8 @@ This is a simple hello world application with Message extension capabilities.
 > Visit [Azure Portal](https://portal.azure.com) and select **Azure Active Directory**.
 >
 > In **App registrations**, paste `AAD_APP_CLIENT_ID` to find your project.
-
->Select **API permissions > Add a permission > Microsoft Graph > Application permissions**, and add `User.Read.All`.
+>
+> Select **API permissions > Add a permission > Microsoft Graph > Application permissions**, and add `User.Read.All`.
 >
 > Select **Grant admin consent for your organization**.
 
@@ -82,42 +89,6 @@ Once deployed, you may want to distribute your application to your organization'
 
 - From Visual Studio Code: open the Teams Toolkit and click `Publish to Teams` or open the command palette and select: `Teams: Publish to Teams`.
 - From TeamsFx CLI: run command `teamsfx publish` in your project directory.
-
-## Play with Message Extension
-
-This template provides some sample functionality:
-
-- You can search for `npm` packages from the search bar.
-
-- You can create and send an adaptive card.
-
-  ![CreateCard](./images/AdaptiveCard.png)
-
-- You can share a message in an adaptive card form.
-
-  ![ShareMessage](./images/ShareMessage.png)
-
-- You can paste a link that "unfurls" (`.botframework.com` is monitored in this template) and a card will be rendered.
-
-  ![ComposeArea](./images/LinkUnfurlingImage.png)
-
-To trigger these functions, there are multiple entry points:
-
-- `@mention` Your message extension, from the `search box area`.
-
-  ![AtBotFromSearch](./images/AtBotFromSearch.png)
-
-- `@mention` your message extension from the `compose message area`.
-
-  ![AtBotFromMessage](./images/AtBotInMessage.png)
-
-- Click the `...` under compose message area, find your message extension.
-
-  ![ComposeArea](./images/ThreeDot.png)
-
-- Click the `...` next to any messages you received or sent.
-
-  ![ComposeArea](./images/ThreeDotOnMessage.png)
 
 ## Further reading
 
