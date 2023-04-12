@@ -31,8 +31,8 @@ https://user-images.githubusercontent.com/36196437/231459635-bb3a34f8-66ec-46fb-
 > Visit [Azure Portal](https://portal.azure.com) and select **Azure Active Directory**.
 >
 > In **App registrations**, paste `AAD_APP_CLIENT_ID` to find your project.
-
->Select **API permissions > Add a permission > Microsoft Graph > Application permissions**, and add `User.Read.All`.
+>
+> Select **API permissions > Add a permission > Microsoft Graph > Application permissions**, and add `User.Read.All`.
 >
 > Select **Grant admin consent for your organization**.
 
