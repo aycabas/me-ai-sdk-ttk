@@ -150,14 +150,6 @@ app.messageExtensions.submitAction<SubmitData>(
           } as MessagingExtensionResult;
         }
         case 'post': {
-          // const attachments = [createPostCard(data.post!, data.peoplepicker!),] || undefined;
-          // // Drop the card into compose window
-          // return {
-          //   type: 'result',
-          //   attachmentLayout: 'list',
-          //   attachments
-          // } as MessagingExtensionResult;
-
           const attachments: MessagingExtensionAttachment[] = await Promise.all([createPostCard(data.post!, data.peoplepicker!),] || undefined);
 
           return {
