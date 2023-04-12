@@ -1,0 +1,73 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.14",
+    "version": "1.0.0",
+    "id": "${{TEAMS_APP_ID}}",
+    "packageName": "com.microsoft.teams.extension",
+    "developer": {
+        "name": "Teams App, Inc.",
+        "websiteUrl": "https://www.example.com",
+        "privacyUrl": "https://www.example.com/termofuse",
+        "termsOfUseUrl": "https://www.example.com/privacy"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "me-ai-sdk-ttk-${{TEAMSFX_ENV}}",
+        "full": "full name for me-ai-sdk-ttk"
+    },
+    "description": {
+        "short": "short description of me-ai-sdk-ttk",
+        "full": "full description of me-ai-sdk-ttk"
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [],
+    "composeExtensions": [
+        {
+            "botId": "${{BOT_ID}}",
+            "commands": [
+                {
+                    "id": "CreatePost",
+                    "context": [
+                        "commandBox",
+                        "compose"
+                    ],
+                    "description": "Use GPT to create a post",
+                    "title": "Create Post",
+                    "type": "action",
+                    "initialRun": true,
+                    "fetchTask": true,
+                    "taskInfo": {
+                        "title": "Create Post",
+                        "width": "medium",
+                        "height": "medium",
+                        "url": "https://teams.microsoft.com"
+                    }
+                }
+            ],
+            "messageHandlers": [
+                {
+                    "type": "link",
+                    "value": {
+                        "domains": [
+                            "*.botframework.com"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "configurableTabs": [],
+    "staticTabs": [],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [],
+    "webApplicationInfo": {
+        "id": "${{AAD_APP_CLIENT_ID}}",
+        "resource": "api://botid-${{BOT_ID}}"
+    }
+}

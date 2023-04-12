@@ -1,0 +1,73 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.14",
+    "version": "1.0.0",
+    "id": "906313b0-107f-4842-8bb6-b4209452bebf",
+    "packageName": "com.microsoft.teams.extension",
+    "developer": {
+        "name": "Teams App, Inc.",
+        "websiteUrl": "https://www.example.com",
+        "privacyUrl": "https://www.example.com/termofuse",
+        "termsOfUseUrl": "https://www.example.com/privacy"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "me-ai-sdk-ttk-local",
+        "full": "full name for me-ai-sdk-ttk"
+    },
+    "description": {
+        "short": "short description of me-ai-sdk-ttk",
+        "full": "full description of me-ai-sdk-ttk"
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [],
+    "composeExtensions": [
+        {
+            "botId": "4ef82baa-2972-47c8-87f1-8eae75790e2a",
+            "commands": [
+                {
+                    "id": "CreatePost",
+                    "context": [
+                        "commandBox",
+                        "compose"
+                    ],
+                    "description": "Use GPT to create a post",
+                    "title": "Create Post",
+                    "type": "action",
+                    "initialRun": true,
+                    "fetchTask": true,
+                    "taskInfo": {
+                        "title": "Create Post",
+                        "width": "medium",
+                        "height": "medium",
+                        "url": "https://teams.microsoft.com"
+                    }
+                }
+            ],
+            "messageHandlers": [
+                {
+                    "type": "link",
+                    "value": {
+                        "domains": [
+                            "*.botframework.com"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "configurableTabs": [],
+    "staticTabs": [],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [],
+    "webApplicationInfo": {
+        "id": "f7430e56-32e1-4e39-9691-0eb3abfd9a0f",
+        "resource": "api://botid-4ef82baa-2972-47c8-87f1-8eae75790e2a"
+    }
+}
