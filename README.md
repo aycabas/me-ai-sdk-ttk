@@ -6,7 +6,7 @@ Message Extensions are implemented on top of the Bot support architecture within
 
 This message extension action command capability is built using Teams Toolkit for Visual Studio Code v5 with the integration of Teams AI SDK and Microsoft Graph.
 
-https://user-images.githubusercontent.com/36196437/231459635-bb3a34f8-66ec-46fb-b8ad-fb6c4afad7ad.mp4
+https://user-images.githubusercontent.com/36196437/231741657-7f764fe5-8762-4057-86f3-c8dbaf36b9b9.mp4
 
 ### Code Structure
 - Back-end code can be found in [index.ts](./index.ts)
