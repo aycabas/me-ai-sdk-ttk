@@ -16,57 +16,75 @@ export function createEditView(post: string, previewMode: boolean): Attachment {
         version: '1.4',
         body: [
             {
-                type: 'Input.Text',
-                id: 'prompt',
-                placeholder: 'Enter a new prompt that updates the post below',
-                isMultiline: true
-            },
-            {
-                type: "Input.ChoiceSet",
-                choices: [],
-                "choices.data": {
-                    "type": "Data.Query",
-                    "dataset": "graph.microsoft.com/users"
-                },
-                id: "peoplepicker",
-                isMultiSelect: true
-
-            },
-            {
-                type: 'Container',
-                minHeight: '160px',
-                verticalContentAlignment: 'Center',
-                items: [
+                "type": "ColumnSet",
+                "columns": [
                     {
-                        type: 'TextBlock',
-                        wrap: true,
-                        text: post
+                        "type": "Column",
+                        "items": [
+                            {
+                                type: 'Input.Text',
+                                id: 'prompt',
+                                placeholder: 'Enter a prompt for GPT',
+                                isMultiline: true
+                            },
+                            {
+                                "type": "ActionSet",
+                                "separator": true,
+                                actions: [
+                                    {
+                                        type: 'Action.Submit',
+                                        title: 'Generate',
+                                        associatedInputs:'auto',
+                                        data: {
+                                            verb: 'generate'
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
                     },
                     {
-                        type: 'Input.Text',
-                        id: 'post',
-                        isVisible: false,
-                        value: post
-                    }
-                ]
-            }
-        ],
-        actions: [
-            {
-                type: 'Action.Submit',
-                title: 'Update',
-                data: {
-                    verb: 'update'
-                }
-            },
-            {
-                type: 'Action.Submit',
-                title: previewMode ? 'Preview' : 'Post',
-                data: {
-                    verb: previewMode ? 'preview' : 'post'
-                }
-            }
-        ]
-
-    });
+                        "type": "Column",
+                        "items": [{
+                            type: "Input.ChoiceSet",
+                            choices: [],
+                            "choices.data": {
+                                "type": "Data.Query",
+                                "dataset": "graph.microsoft.com/users"
+                            },
+                            id: "peoplepicker",
+                            isMultiSelect: true
+                        },
+                        {
+                            type: 'Container',
+                            verticalContentAlignment: 'Center',
+                            items: [
+                                {
+                                    type: 'TextBlock',
+                                    wrap: true,
+                                    text: post
+                                },
+                                {
+                                    type: 'Input.Text',
+                                    id: 'post',
+                                    isVisible: false,
+                                    value: post
+                                }
+                            ]
+                        },
+                        {
+                            "type": "ActionSet",
+                            "separator": true,                            
+                            actions: [
+                                {
+                                    type: 'Action.Submit',                                                                   
+                                    title: previewMode ? 'Preview' : 'Post',
+                                    data: {
+                                        verb: previewMode ? 'preview' : 'post'                                        
+                                    }
+                                }]
+                            }]
+                       }]
+                    }]
+                });
 }

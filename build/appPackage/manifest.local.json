@@ -2,7 +2,7 @@
     "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
     "manifestVersion": "1.14",
     "version": "1.0.0",
-    "id": "906313b0-107f-4842-8bb6-b4209452bebf",
+    "id": "951a9de9-a99d-4405-94b2-f23414415f85",
     "packageName": "com.microsoft.teams.extension",
     "developer": {
         "name": "Teams App, Inc.",
@@ -26,7 +26,7 @@
     "bots": [],
     "composeExtensions": [
         {
-            "botId": "4ef82baa-2972-47c8-87f1-8eae75790e2a",
+            "botId": "7b43a7f5-45bf-463c-a0cd-1c512ee78a50",
             "commands": [
                 {
                     "id": "CreatePost",
@@ -67,7 +67,7 @@
     ],
     "validDomains": [],
     "webApplicationInfo": {
-        "id": "f7430e56-32e1-4e39-9691-0eb3abfd9a0f",
-        "resource": "api://botid-4ef82baa-2972-47c8-87f1-8eae75790e2a"
+        "id": "b51ef08b-a459-45fc-8db2-4e6fefc07817",
+        "resource": "api://botid-7b43a7f5-45bf-463c-a0cd-1c512ee78a50"
     }
 }
