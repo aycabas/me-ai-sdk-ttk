@@ -23,52 +23,67 @@ const graphClient = createMicrosoftGraphClientWithCredential(appCredential, scop
 
 export async function createPostCard(post: string, peoplepicker: string): Promise<Attachment> {
 
-    let peopleArray = peoplepicker.split(',');
-    let displayNameArray = [];
-    for (let i = 0; i < peopleArray.length; i++) {
-        let person = await graphClient.api(`/users/${peopleArray[i]}`).get();
-        displayNameArray.push(
-            {
-                'type': 'mention',
-                'text': `<at>${person.displayName}</at>`,
-                "mentioned": {
-                    "id": person.userPrincipalName,
-                    "name": person.displayName
-                },
-                'id': i.toString() // Assign a unique ID to each mention
-            });
+    if (peoplepicker != null) {
+        let peopleArray = peoplepicker.split(',');
+        let displayNameArray = [];
+        for (let i = 0; i < peopleArray.length; i++) {
+            let person = await graphClient.api(`/users/${peopleArray[i]}`).get();
+            displayNameArray.push(
+                {
+                    'type': 'mention',
+                    'text': `<at>${person.displayName}</at>`,
+                    "mentioned": {
+                        "id": person.userPrincipalName,
+                        "name": person.displayName
+                    },
+                    'id': i.toString() // Assign a unique ID to each mention
+                });
 
-    }
-
-    console.log(displayNameArray);
-
-    const body: any = [{
-        type: 'TextBlock',
-        text: post,
-        wrap: true
-    }];
-
-    displayNameArray.forEach((displayName) => {
-        body.push({
-            type: 'TextBlock',
-            text: `<at>${displayName.mentioned.name}</at>`,
-            size: 'Small',
-            wrap: true,
-            horizontalAlignment: 'Right',
-            isSubtle: true
-        });
-    });
-
-    const card = CardFactory.adaptiveCard({
-        '$schema': 'http://adaptivecards.io/schemas/adaptive-card.json',
-        'type': 'AdaptiveCard',
-        'version': '1.4',
-        'body': body,
-        'msteams': {
-            'entities': displayNameArray
         }
-    });
-    return card;
+
+        console.log(displayNameArray);
+
+        const body: any = [{
+            type: 'TextBlock',
+            text: post,
+            wrap: true
+        }];
+
+        displayNameArray.forEach((displayName) => {
+            body.push({
+                type: 'TextBlock',
+                text: `<at>${displayName.mentioned.name}</at>`,
+                size: 'Small',
+                wrap: true,
+                horizontalAlignment: 'Right',
+                isSubtle: true
+            });
+        });
+
+        const card = CardFactory.adaptiveCard({
+            '$schema': 'http://adaptivecards.io/schemas/adaptive-card.json',
+            'type': 'AdaptiveCard',
+            'version': '1.4',
+            'body': body,
+            'msteams': {
+                'entities': displayNameArray
+            }
+        });
+        return card;
+    }
+    else {
+        const card = CardFactory.adaptiveCard({
+            '$schema': 'http://adaptivecards.io/schemas/adaptive-card.json',
+            'type': 'AdaptiveCard',
+            'version': '1.4',
+            'body': [{
+                type: 'TextBlock',
+                text: post,
+                wrap: true
+            }],
+        });
+        return card;
+    }
 }
 
 
